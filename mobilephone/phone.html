@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> -->
+	<link rel="stylesheet" href="./Swiper-3.4.2/Swiper-3.4.2/dist/css/swiper.min.css">
+	<link rel="stylesheet" href="css/phone.css">
+	<link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+	<script src='./Swiper-3.4.2/Swiper-3.4.2/dist/js/swiper.min.js'></script>
+	<div class="container">
+		<div class="logo">
+			<div class="daohang">
+				<img src="pic/logo.jpg" alt="">
+			</div>
+			<div class="logo_pic">
+				<img src="pic/title.jpg" alt="">
+			</div>
+		</div>
+		<div class="lunbo">
+			<div class="swiper-container">
+			  <div class="swiper-wrapper">
+				    <div class="swiper-slide">
+				    	<img src="lunbo/1.jpg" alt="">
+				    </div>
+				    <div class="swiper-slide">
+						<img src="lunbo/2.jpg" alt="">
+				    </div>
+				    <div class="swiper-slide">
+				    	<img src="lunbo/3.jpg" alt="">
+				    </div>
+				    <div class="swiper-slide">
+						<img src="lunbo/4.jpg" alt="">
+				    </div>
+	                <div class="swiper-slide">
+                       <img src="lunbo/5.jpg" alt="">
+	                </div>
+			  </div>
+			  <div class="swiper-pagination cricle"></div>
+        </div>
+	 </div>
+		<div class="yuezhang">
+			<div class='yz_title'>
+				<h2>岁月不老,一世倾城</h2>
+				<p>乐章</p>
+			</div>
+			<div class='clear'></div>
+			<div class='yz_con'>
+				<div class="yz_wz">
+				  <p>时光的流逝，如缓缓流过的小溪，再怎样努力也无法逆转它的方向；这个午后，我站在开满丁香花的树下目送你走远，紫色的小花散发着幽幽的暗香，我忍不住深吸一口气</p>
+				</div>
+				<div class="yz_img">
+					<img src="pic/wzt.jpg" alt="">
+					<p>12</p>
+				</div>
+			</div>
+			<div class='clear'></div>
+			<div class='yz_foot'>
+				<div class='ping_ren'>
+					<span class='xiaoxia'>小夏同学</span>
+					<span>
+						<img src="pic/date.jpg" alt="">
+					</span>
+					<span>5/23</span>
+					<span>16:15</span>
+				</div>
+				<div class="dianzan">
+					<span>
+						<img src="pic/dianzan.jpg" alt="">
+					</span>
+					<span>22</span>
+					<span>
+						<img src="pic/pinlun.jpg" alt="">
+					</span>
+					<span>22</span>
+				</div>
+			</div>
+		   <div class="clear"></div>
+		</div>
+		<div class="chat">
+			<div class='ct_title'>
+				<h2>岁月不老,一世倾城</h2>
+				<p>聊聊</p>
+			</div>
+			<div class='clear'></div>
+			<div class='ct_con'>
+				<div class="ct_wz">
+				  <p>时光的流逝，如缓缓流过的小溪，再怎样努力也无法逆转它的方向；这个午后，我站在开满丁香花的树下目送你走远，紫色的小花散发着幽幽的暗香，我忍不住深吸一口气</p>
+				</div>
+			</div>
+			<div class='clear'></div>
+			<div class='ct_foot'>
+				<div class='ct_ren'>
+					<span class='xiaoxia'>小夏同学</span>
+					<span>
+						<img src="pic/date.jpg" alt="">
+					</span>
+					<span>5/23</span>
+					<span>16:15</span>
+				</div>
+				<div class="ct_dianzan">
+					<span>
+						<img src="pic/dianzan.jpg" alt="">
+					</span>
+					<span>22</span>
+					<span>
+						<img src="pic/pinlun.jpg" alt="">
+					</span>
+					<span>22</span>
+				</div>
+			</div>
+		   <div class="clear"></div>
+		</div>
+	</div>
+	<script>
+		//设置最佳视口；
+		var num = window.devicePixelRatio;
+		var bili = 1/num;
+		//创建meta元素；
+		var meta_vp = document.createElement('meta');
+		meta_vp.name = "viewport";
+		meta_vp.content = 'width=device-width, user-scalable=no, initial-scale='+bili+', maximum-scale='+bili+', minimum-scale='+bili+'';
+		document.head.appendChild(meta_vp);
+		var wid = document.documentElement.clientWidth/10;
+		document.documentElement.style.fontSize = wid + 'px';
+		//轮播图；
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 5000,//可选选项，自动滑动
+			pagination : '.swiper-pagination',
+            paginationClickable :true,
+            loop:true,
+		});
+	</script>
+	<script src='js/jquery-1.12.3.min.js'></script>
+</body>
+</html>

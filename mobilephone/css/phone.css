@@ -1,0 +1,151 @@
+.container {
+  width: 10rem;
+}
+.logo {
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  overflow: hidden;
+}
+.logo .daohang {
+  float: left;
+  margin: 0.46875rem 0 0 0.3125rem;
+}
+.logo .daohang img {
+  width: 0.46875rem;
+}
+.logo .logo_pic {
+  float: left;
+  margin: 0.234375rem 0 0 2.8125rem;
+}
+.logo .logo_pic img {
+  width: 3.125rem;
+}
+/*轮播图开始*/
+.lunbo {
+  margin-top: 0.78125rem;
+}
+.lunbo img {
+  height: 4.6875rem;
+  width: 10rem;
+}
+.cricle span {
+  height: 0.25rem;
+  width: 0.25rem;
+}
+.yuezhang,
+.chat {
+  height: 5.375rem;
+  margin-top: 0.234375rem;
+}
+.yz_title,
+.ct_title {
+  height: 0.9375rem;
+  font-family: '宋体';
+  padding: 0.46875rem 0 0 0.4375rem;
+}
+.yz_title > h2,
+.ct_title > h2 {
+  font-size: 0.40625rem;
+  float: left;
+}
+.yz_title > p,
+.ct_title > p {
+  font-size: 0.3125rem;
+  float: right;
+  width: 1rem;
+  height: 0.46875rem;
+  line-height: 0.46875rem;
+  border: 0.015625rem solid #808080;
+  border-radius: 0.078125rem;
+  text-align: center;
+  margin-right: 0.46875rem;
+  color: #808080;
+}
+.clear {
+  clear: both;
+}
+.yz_wz > p {
+  font-size: 0.3125rem;
+  color: #959595;
+  float: left;
+  height: 2.1875rem;
+  width: 5.9375rem;
+  margin-left: 0.4375rem;
+}
+.ct_wz {
+  font-size: 0.3125rem;
+  color: #959595;
+  padding: 0 0.46875rem 0 0.3125rem;
+}
+.yz_img > img {
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.yz_img {
+  float: right;
+  position: relative;
+  margin-right: 0.46875rem;
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+.yz_img > p {
+  position: absolute;
+  font-size: 0.3125rem;
+  right: 0.46875rem;
+  bottom: 0.234375rem;
+  color: white;
+  height: 0.390625rem;
+  width: 0.546875rem;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  border-radius: 0.046875rem;
+}
+.yz_foot,
+.ct_foot {
+  margin-top: 0.3125rem;
+  margin-left: 0.3125rem;
+  margin-right: 0.46875rem;
+}
+.ping_ren,
+.ct_ren {
+  height: 0.390625rem;
+  width: 4.6875rem;
+  float: left;
+  color: #b3b3b3;
+}
+.ping_ren > span,
+.ct_ren > span {
+  float: left;
+  font-size: 0.34375rem;
+  margin-right: 0.234375rem;
+}
+.ping_ren > span > img,
+.ct_ren > span > img {
+  height: 0.390625rem;
+  width: 0.390625rem;
+  margin-left: 0.15625rem;
+}
+.ping_ren > span:first-child,
+.ct_ren > span:first-child {
+  margin: 0;
+}
+.dianzan,
+.ct_dianzan {
+  float: right;
+  margin-right: 0.46875rem;
+  color: #b3b3b3;
+}
+.dianzan > span,
+.ct_dianzan > span {
+  float: left;
+  font-size: 0.34375rem;
+  margin-right: 0.15625rem;
+}
+.xiaoxia {
+  color: #4bbef9;
+}
+.dianzan > span > img,
+.ct_dianzan > span > img {
+  width: 0.390625rem;
+  height: 0.390625rem;
+}
