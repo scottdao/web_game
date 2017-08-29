@@ -1,0 +1,41 @@
+Ê²Ã´ÊÇsvg£º
+
+    SVG Ö¸¿ÉÉìËõÊ¸Á¿Í¼ÐÎ (Scalable Vector Graphics)
+    SVG ÓÃÀ´¶¨ÒåÓÃÓÚÍøÂçµÄ»ùÓÚÊ¸Á¿µÄÍ¼ÐÎ
+    SVG Ê¹ÓÃ XML ¸ñÊ½¶¨ÒåÍ¼ÐÎ
+    SVG Í¼ÏñÔÚ·Å´ó»ò¸Ä±ä³ß´çµÄÇé¿öÏÂÆäÍ¼ÐÎÖÊÁ¿²»»áÓÐËùËðÊ§
+    SVG ÊÇÍòÎ¬ÍøÁªÃËµÄ±ê×¼
+    SVG ÓëÖîÈç DOM ºÍ XSL Ö®ÀàµÄ W3C ±ê×¼ÊÇÒ»¸öÕûÌå
+		
+
+ÓÅÊÆ£º
+
+    SVG ¿É±»·Ç³£¶àµÄ¹¤¾ß¶ÁÈ¡ºÍÐÞ¸Ä£¨±ÈÈç¼ÇÊÂ±¾£©
+    SVG Óë JPEG ºÍ GIF Í¼Ïñ±ÈÆðÀ´£¬³ß´ç¸üÐ¡£¬ÇÒ¿ÉÑ¹ËõÐÔ¸üÇ¿¡£
+    SVG ÊÇ¿ÉÉìËõµÄ
+    SVG Í¼Ïñ¿ÉÔÚÈÎºÎµÄ·Ö±æÂÊÏÂ±»¸ßÖÊÁ¿µØ´òÓ¡
+    SVG ¿ÉÔÚÍ¼ÏñÖÊÁ¿²»ÏÂ½µµÄÇé¿öÏÂ±»·Å´ó
+    SVG Í¼ÏñÖÐµÄÎÄ±¾ÊÇ¿ÉÑ¡µÄ£¬Í¬Ê±Ò²ÊÇ¿ÉËÑË÷µÄ£¨ºÜÊÊºÏÖÆ×÷µØÍ¼£©
+    SVG ¿ÉÒÔÓë Java ¼¼ÊõÒ»ÆðÔËÐÐ
+    SVG ÊÇ¿ª·ÅµÄ±ê×¼
+    SVG ÎÄ¼þÊÇ´¿´âµÄ XML
+
+SVG µÄÖ÷Òª¾ºÕùÕßÊÇ Flash£º
+
+Óë Flash Ïà±È£¬SVG ×î´óµÄÓÅÊÆÊÇÓëÆäËû±ê×¼£¨±ÈÈç XSL ºÍ DOM£©Ïà¼æÈÝ¡£¶ø Flash ÔòÊÇÎ´¿ªÔ´µÄË½ÓÐ¼¼Êõ¡£
+
+
+<embed src="rect.svg" width="300" height="100" 
+type="image/svg+xml"
+pluginspage="http://www.adobe.com/svg/viewer/install/" />  embedÔÊÐíÊ¹ÓÃ½Å±¾£»pluginspage ÊôÐÔÖ¸ÏòÏÂÔØ²å¼þµÄ URL
+
+
+
+<object data="rect.svg" width="300" height="100" 
+type="image/svg+xml"
+codebase="http://www.adobe.com/svg/viewer/install/" />   object²»ÔÊÐíÊ¹ÓÃ½Å±¾£»codebase ÊôÐÔÖ¸ÏòÏÂÔØ²å¼þµÄ URL
+
+
+
+<iframe src="rect.svg" width="300" height="100">
+</iframe>
