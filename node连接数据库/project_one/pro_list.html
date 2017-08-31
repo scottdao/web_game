@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.list{
+			width: 800px;
+			min-height: 400px;
+			margin: 50px auto;
+		}
+		.list table{
+			text-align: center;
+			vertical-align: middle;
+			width: 800px;
+		}
+		.list a{
+			text-decoration: none;
+		}
+		.list tr:nth-child(odd){
+			background: #ddd;
+		}
+		.list tr:first-child{
+			background: white;
+		}
+		.list tr:hover{
+			background: orange;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<script src='js/jquery-3.2.1.js'></script>
+	<div class="list">
+		<a href="pro_add.html">返回添加页</a>
+	  <table border='1' cellspacing='0'>
+	  	  <tr>
+	  	  	<th>ID</th>
+	  	  	<th>标题</th>
+	  	  	<th>发布日期</th>
+	  	  	<th>流览量</th>
+	  	  	<th>操作</th>
+	  	  </tr>
+	  	  <!-- <tr>
+	  	  	<td>1</td>
+	  	  	<td>fjiej</td>
+	  	  	<td>jfiejfd</td>
+	  	  	<td>232</td>
+	  	  	<td><a href="javascript:;">删除</a></td>
+	  	  </tr> -->
+	  </table>
+	</div>
+	<script>
+		//从数据库中获取内容加载到页面中；
+		$.ajax({
+			url: 'http://127.0.0.1/news/list/',
+			type: 'get',
+			success:function(get_data){
+               console.log(get_data);
+               //将数据加载到页面中；
+               
+              $.each(get_data,function(e){
+                 // console.log(this.time);
+                 var timer = new Date(this['time']*1000).toLocaleString();
+                 $('<tr><td>'+this.id+'</td>'+
+			  	   '<td>'+this.title+'</td>'+
+			  	   '<td>'+timer+'</td>'+
+			  	   '<td>'+this.pv+'</td>'+
+			  	   '<td><a href="javascript:;">删除</a></td>'+
+	  	           '</tr> ').appendTo($('.list>table'));
+               });
+			}
+		})
+		
+		//点击删除，从页面中删除数据；
+		$('.list>table').on('click','a',function(){
+			// console.log(111);
+			//发送ajax请求；
+			var id = $(this).parent().parent().children(':first').html();
+			// console.log(id);
+			var tr =$(this).parent().parent();
+			$.ajax({
+				url: 'http://127.0.0.1/news/del/',
+				type: 'get',
+				data:{id:id},
+				success:function(ax_data){
+                    // console.log(ax_data);
+                    //让页面中对应的数据消失；
+                  if(ax_data.error) return alert(ax_data.error);
+				  alert('删除成功！');
+                  tr.fadeOut();
+				}
+			})
+			
+			
+		});
+	</script>
+</body>
+</html>
