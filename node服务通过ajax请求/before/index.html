@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8'>
+	<title>Document</title>
+	<style>
+		*{
+		   margin: 0;
+		   padding: 0;
+		}
+		.load_data{
+			height: 50px;
+			width: 100px;
+			background: skyblue;
+			text-align: center;
+			line-height: 50px;
+		    color: white;
+		    margin: 10px 20px;
+		    font-size: 15px;
+		    cursor: pointer;
+		}
+       .ym span{
+            padding:  0 5px;
+        }
+        .ym p{
+            margin-top: 10px;
+            border-bottom: 1px solid gray;
+            padding: 10px 0;
+        }
+        .ym h2{
+            padding: 10px 0 ;
+        }
+	</style>
+	<script src='js/jquery-3.2.1.js'></script>
+</head>
+<body>
+     <div class="load_data">加载数据</div>
+     <div class='ym'></div>
+     <script>
+         $(function(){
+         	$('.load_data').click(function(){
+         		
+         		//发送ajax请求，获取数据；
+         		$.ajax({
+         			type:'get',
+         			url:'http://127.0.0.1',
+         			success:function(data){
+         				// console.log(data);
+                        //解析数据，将数据加载到页面中；
+                        var ji_data = $.parseJSON(data);
+                        // console.log(ji_data);
+                           var timer=new Date(ji_data.time).toLocaleString();
+                           $('<h2>发布的时间：'+timer+'</h2><p><span>'+ji_data.result.join('<span></span> ')+'</span></p>').appendTo('.ym');     
+                       
+                       
+         			},
+         			beforeSend:function(){
+         				console.log('loading....');
+         			},
+         			complete:function(){
+         				console.log('加载完成');
+         			},
+         			error:function(e){
+         				console.log(e);	
+         			}
+
+         		});
+         		
+         	});
+         })
+     </script>
+</body>
+</html>
