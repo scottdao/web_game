@@ -1,6 +1,6 @@
 
 （原生node）
-
+-----------------------------------------------------
 
 #1.node创建服务
 
@@ -182,25 +182,29 @@
 #6同步异步写文件
 
    ###读取文件夹里
-           WriteFile:function(path,data,callback){
-            fs.writeFile(path,data,function(error,data){//异步写文件
-                if(error){
-                    throw error;
+
+
+                   WriteFile:function(path,data,callback){
+                    fs.writeFile(path,data,function(error,data){//异步写文件
+                        if(error){
+                            throw error;
+                        }
+                        console.log('it is saved!');//文件被保存
+                        callback('文件保存存')
+                    });
                 }
-                console.log('it is saved!');//文件被保存
-                callback('文件保存存')
-            });
-        }
 
    ###路由文件夹里
-     WriteFile:function(request,response){
-        //response.write('注册页面');
-        function callback(data){
-            response.write(data)
-            response.end();//不写没有http协议尾
-        }
-        $file.WriteFile('./index/view/one.txt','今天写了',callback);
-    }
+
+   
+             WriteFile:function(request,response){
+                //response.write('注册页面');
+                function callback(data){
+                    response.write(data)
+                    response.end();//不写没有http协议尾
+                }
+                $file.WriteFile('./index/view/one.txt','今天写了',callback);
+            }
 
 #7读取图片（一般都采用异步读取）
 
