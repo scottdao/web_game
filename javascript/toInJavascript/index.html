@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pratice</title>
+</head>
+<body>
+	<script>
+	(function(){
+		for(var i = 0;i<10;i++){
+			(function(i){
+				setTimeout(function(){
+					console.log(i)
+				},1000)
+			})(i)
+		}
+	})()
+	alert(i)
+	</script>
+</body>
+</html>

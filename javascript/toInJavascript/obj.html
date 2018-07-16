@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 面向对象 -->
+	<script type='text/javascript' charset='utf-8'>
+	//对象的创建；
+	//第一种创建方式；
+	function dx(name,age,yz){
+		var obj = new Object();
+		obj.name = name;
+		obj.age = age;
+		obj.yz = yz;
+		obj.sayFu = function(){
+			console.log(this.name);
+		}
+		return obj;
+	}
+
+	//构造函数
+	function Man(name,age,sex){
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.sayFu = function(){
+			alert('名字'+this.name);
+		}
+	}
+
+	var f1 = new Man('scott',18,'男');
+	var f2 = new Man('scott',18,'男');
+	console.log(f1==f2)//false
+	//同一类的模板创建的实例是不同的；
+	
+
+	alert(a)
+	a()
+	var a = 3;
+	alert(a);
+
+	function a(){
+		alert(3)
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	   	//闭包；执行环境和作用域链
+	   	//封闭性，使得函数内部的变量在函数外部进行使用。
+	   
+	   	function first(a){
+	   		var temp = a;
+
+	   	   return function(a){
+	   	   		temp += a
+	   	   		return temp;
+	   	   } 
+	   	}
+	   	var f = first(2);
+	   console.log(f(10));
+	   console.log(f(20));
+	   console.log(f(5));
+	  //console.log(first(2)(10));
+	</script>
+</head>
+<body>
+	<!--  -->
+
+</body>
+</html>

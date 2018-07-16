@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clouser</title>
+</head>
+<body>
+	<script>
+		/*
+		*闭包：（1）保护变量作用。（2）一个函数可以访问另一个函数作用内的变量。
+		 */
+		//var c = '';
+		function one(x){
+			var temp = x
+			return function(x){
+				temp += x
+				//alert(temp)
+				//c = temp;
+				alert(temp);
+			}
+		}
+		var a = one(10);
+		a(5)
+		a(10)
+		a(20)
+		//console.log(c)
+	</script>
+</body>
+</html>

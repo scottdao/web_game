@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		/**
+	  * Object.defineProperty双向数据绑定
+	  */
+	 
+	
+	</script>
+	<script type='text/javascript' chartset='utf-8'>
+	//原型
+	/*
+	function Person(){
+
+	 }
+	 var obj = Person.prototype;
+	 obj.name = 'scott';
+	 obj.age = 29;
+	 obj.sex = '男';
+	 var f1 = new Person();
+	 console.log(f1.__proto__==obj);//true,原型对象
+	 console.log(f1.__proto__.__proto__.__proto__);//null
+	 console.log(f1.__proto__.__proto__)//Object
+	 console.log(f1.__proto__.__proto__.constructor)//Object的构造函数
+	*/
+	/**
+	 * 原型实现原型构造器；Object.defineProperty,重造构造器。也可以实现双向数据绑定。
+	 *Object.defineProperty方法中的几个参数的设置。
+	 *属性描述中 ：
+	 *1.configurable设置为true,表示对象上的属性可以删除或更改。默认为false.
+	 *2.enumerable设置为true时，该属性才能被枚举出来。默认为false.
+	 *3.value表示属性的值。
+	 *4.writable为true时，属性值才能被改变。默认为false.
+	 *5.get和set为属性提供一个getter和setter方法。
+	 */
+	/* var some = {
+
+	}
+	Object.defineProperty(some,'name',{
+		value:'scott'
+		configurable:false,
+		enumerable:true,
+		writable:true
+	})
+	//some.name = 123
+	console.log(some)
+	function Two(){
+
+	 }
+	 Two.prototype = {
+	 	age:18,
+	 	name:'scott',
+	 	type:'function'
+	 }
+	Object.defineProperty(Two.prototype,'constructor',{//为原型重设构造器。
+			enumerable:false,
+			value:Two
+	})
+	 var two = new Two();
+	 console.log(two)*/
+	 
+
+	 
+	</script>
+</body>
+</html>

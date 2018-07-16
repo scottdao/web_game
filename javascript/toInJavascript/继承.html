@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+</head>
+<body>
+	<script src='./exits.js'></script>
+	<script>
+
+		/**
+		 * 原型继承：父类实例直接赋值给子类的原型。继承父类的原型，
+		 * 父类的私有属性的继承造成不方便。
+		 
+		function Father(name,age,type){
+			this.name = name ;
+			this.age = age;
+			this.type = type
+		}
+
+		var f = new Father('s',18,'j');
+
+		function Son(){}
+
+		Son.prototype = f;
+
+		var son = new Son()
+
+		 console.log(son)*/
+		 /**
+		  * 类继承：call和apply只继承模板不继承原型对象
+		  
+		 function Father(age,sex,type){
+		 	this.age = age;
+		 	this.sex,sex;
+		 	this.type = type;
+		 }
+		 Father.prototype.say = 'id'
+
+		 function Son (age,sex,type,id){
+		 	this.id = id;
+
+		 	Father.call(this,age,sex,type)
+		 }
+		 var son = new Son(18,'nv',3,'12')
+		 console.log(son)*/
+		 //最合理的继承方式，既能继承父类原型对象又能继承父类的模板。
+		 //混合继承会继承两次父类构造函数，继承一次原型对象。
+		 /* function Father(age,sex,type){
+		 	this.age = age;
+		 	this.sex=sex;
+		 	this.type = type;
+		 }
+		 Father.prototype.say = 'id'
+		 var father = new Father()
+		 function Son (age,sex,type,id){
+		 	this.id = id;
+		 	Father.call(this,age,sex,type)
+		 }
+		 Son.prototype = father;
+		 var son = new Son(18,'nv',3,'12')
+		 console.log(son)*/
+	</script>
+</body>
+</html>

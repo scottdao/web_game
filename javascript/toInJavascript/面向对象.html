@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象</title>
+	<!-- <script src='./toolFunc.js'></script> -->
+</head>
+<body>
+	<script>
+		/*
+	     *工厂模式
+		 
+		function firstClass(name,age,y){
+			var obj = new Object();
+			obj.name = name;
+			obj.age = age;
+			obj.y = y;
+			obj.sayBy=function(){
+				alert(this.age)
+			}
+			return obj;
+		}
+		var one = firstClass('scott','17','123');
+		one.sayBy()*/
+		/*----------------------*/
+
+		/**
+		*通过hasownProperty()来判断属性是属于实例还是原型的，
+		**/
+		/*function SecondClass(){
+
+		}
+		SecondClass.prototype.name = 'scott';
+		SecondClass.prototype.age = 18;
+
+		var se = new SecondClass();
+		se.name = 'less'
+		alert(se.hasOwnProperty('name'))//true*/
+		/**
+		 * *in操作符 for-in 
+		 
+		function SecondClass(){
+
+		}
+		SecondClass.prototype.name = 'scott';
+		SecondClass.prototype.age = 18;
+
+		var se = new SecondClass();
+		//se.name = 'less'
+		alert('name' in se)*/
+
+
+
+			/**function SecondClass(){
+
+		}
+		//SecondClass.prototype.name = 'scott';
+		SecondClass.prototype.age = 18;
+
+		var se = new SecondClass();
+		se.name = 'less'
+		//alert('name' in se)
+	
+		 * 判断是否为原型属性。
+		
+		function hasPrototype(object,name){
+			return !object.hasOwnProperty(name) && name in object
+		}
+		//console.log(111)
+		console.log(hasPrototype(se,'name'))*/
+
+		
+	</script>
+
+</body>
+</html>

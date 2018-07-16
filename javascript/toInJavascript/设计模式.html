@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 组合设计模式,既有私有属性，又有公有属性。
+		 *
+		 *
+			function Person(name,son,age){
+					this.name = name;
+					this.son = son;
+					this.age = age;
+					this.say = function(){
+						return this.name;
+					}
+			}
+
+			Person.prototype={
+					constructor:Person,
+					i:123,
+					job:234
+			}
+			var person = new Person('s','1','13');
+			console.log(person); 
+		* 
+	    */
+	  
+	   /**
+	    * 动态原型模式。
+	   
+	    function Person(age,name,job){
+
+	   	this.age = age;
+	   	this.name = name;
+	   	this.job = job
+        if(typeof this.sayName != 'function'){
+        	Person.prototype.sayName = function(){
+        		console.log(this.name)
+        	}
+        }
+	   }
+	 	var person = new Person('18','scoot','name');
+	 	console.log(person) */
+	 	/**
+	 	 * 稳妥构造模式；不能使用this对象。
+	 	 */
+	 	function Person(age,name,type){
+	 		var obj = new Object();
+	 		obj.age = age;
+	 		obj.name = name;
+	 		obj.type = type;
+	 		obj.syName = function(){
+	 			
+	 		}
+	 	}
+	  </script>
+</body>
+</html>

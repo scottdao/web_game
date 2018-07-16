@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	   	//执行环境，window对象（最上层对象）
+		var color = 'red';
+		function first(){
+			var color2 = 'blue';
+			function second(){
+				var color3 = color2;
+				color2 = color;
+				color = color3;
+			}
+			second();
+		}
+		first ();
+		//下级作用域能访问上级作用域的环境的变量，
+		//环境变量只能一层一层的向上一级进行追溯，可以访问上级的环境（变量和函数）；
+		//只能一层一层的向上追溯。
+	</script>
+</head>
+<body>
+	<script>
+		//call和apply的使用；
+		 /*function sum(x,y){
+		 	return x+y;
+		 }
+
+		 function  callEn(num1,num2){
+		 	return sum.call(this,num1,num2);
+		 }
+		//console.log(callEn(5,6));
+		function applyEn(n1,n2){
+			return sum.apply(this,[n1,n2]);
+		}
+		console.log(applyEn(3,7));*/
+		//扩充作用域；
+		/*window.name = 'liu';
+		obj = {name:'bushiliu'};
+		function type(){
+			console.log(this.name);
+		}
+		type.call(obj);*/
+
+		//方法；
+		function method(a,b){
+			return a+b;
+		}
+
+		//自定义对象；
+		function NewObj(x,y){
+			this.x = x;
+			this.y = y;
+			return this.x*this.y;
+		}
+
+		var newType = new NewObj(20,30);
+
+		console.log(method.call(newType,newType.x,newType.y));
+	</script>
+
+</body>
+</html>
