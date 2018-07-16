@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>手机滑动手势问题</title>
+</head>
+<body>
+<div className="meGood clearFix" ontouchmove='move' onTouchStart='start' onTouchEnd='end' > 
+</div>
+	<script>
+	//模拟左滑右滑事件；采用触摸事件中event对象中的changedTouches属性，来实现；
+	let startX = 0;
+	let startY =0;
+
+	function end(e){
+			e = e.changedTouches[0];
+			let left = e.clientX - startX;//左
+			let tops = e.clientY - startY;
+			if(left>0 && Math.abs(tops)<=20){
+				console.log('右');
+			}else if(left<0 && Math.abs(tops)<=20){
+				console.log('左');
+			}
+		}
+		function start(e){
+			e = e.changedTouches[0];
+			startX = e.clientX;
+			startY = e.clientY;
+		}
+	/*function move(e){
+			e = e.changedTouches[0];
+			let left = e.clientX - startX;//左
+			let tops = e.clientY - startY;//上
+			//console.log(tops);
+			if(left>0 && Math.abs(tops)<=5){
+				console.log('右');
+			}else if(left<0 && Math.abs(tops)<=5){
+				console.log('左');
+			}
+		}*/
+	</script>
+</body>
+</html>
