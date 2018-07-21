@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>port-three</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 鸭式辩型法：一个类实现接口的目的，把接口的方法都实现。完全面向对象，
+		 * 代码实现统一，也解耦。
+		 *
+		 *接口实现2个参数，
+		 *
+		 *参数一：接口的名称
+		 *
+		 *参数二：接收方法名称的集合 
+		 */
+		function Interface(name,methods){
+			//console.log(methods)
+				if(arguments.length !=2){
+
+					throw new Error("this instance interface constructor arguments' length must  be 2 !")
+				}
+
+				this.name = name;
+
+				this.methods = [];//定义一个内置的空数组对象，接收methods里的元素；
+				//console.log(this.methods)
+				for(var i = 0,len = methods.length; i<len;i++){
+					
+					if(typeof methods[i] !== 'string'){
+						throw new Error("this interface methods' name must be string!")
+					}
+
+					this.methods.push(methods[i]);
+
+				}
+		}
+
+
+		//二准备工作
+
+		//1接口实例化；
+		var compsiterInterface = new Interface('compsiterInterface',['add','remove'])
+
+		var FormItemInterface = new Interface('FormItemInterface',['update','select'])
+
+		//2实现接口的方法
+		function Compsited(){
+			
+		}
+
+		Compsited.prototype.add = function(){
+			//do something...
+			alert('add')
+		}
+
+		Compsited.prototype.remove = function(){
+			//do something...
+			alert('remove')
+
+		}
+
+		Compsited.prototype.update = function(){
+			//do something
+		}
+
+		Compsited.prototype.select = function(){
+			//do something
+		}
+
+
+		//检验接口的方法；
+		Interface.ensureImplements = function(object){
+			//var interface = arguments[1];
+			if(arguments.length<2){
+					throw new Error('this Interface arguments.length must be >= 2!')
+			}
+			//if(interface.constructor !==  Interface )
+			//获得接口实例对象
+			for(var i =1,len = arguments.length;len>i;i++){
+
+				var newInterface = arguments[i];
+			
+				if(newInterface.constructor !== Interface){
+					throw new Error('the arguments constructor not be Interface class')
+				}
+				for(var j=0;j<newInterface.methods.length;j++){
+					
+					var methodName = newInterface.methods[j];
+
+					if(!object[methodName] || typeof object[methodName] !=='function'){
+						throw new Error("the method's'"+methodName+"'is not found!")
+					}
+				}
+			}
+		}
+
+
+		var c1 = new Compsited();
+		
+		Interface.ensureImplements(c1,compsiterInterface,FormItemInterface)
+		c1.add()
+	</script>
+</body>
+</html>

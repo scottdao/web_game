@@ -1,0 +1,75 @@
+  b             <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>port-two</title>
+</head>
+<body>
+	<script>
+		/**
+		 *
+		 * 属性检测实现接口
+		 * 
+		 */
+		
+		function Compsited(){
+				//定义类实现接口；定义类的变量必须得固定。
+				this.inplement = ['compsite','formItem']
+		}
+
+		Compsited.prototype.add = function(){
+			//do something...
+			alert('add')
+		}
+
+		Compsited.prototype.remove = function(){
+			//do something...
+
+		}
+
+		Compsited.prototype.update = function(){
+			//do something
+		}
+
+		Compsited.prototype.select = function(){
+			//do something
+		}
+
+		//检测类所有的接口是否实现。
+		function checkCompsite(instance){
+
+			if(!IsImlements(instance,'compsite','formItem')){
+				throw new Error('Object does not implement a required interface!')
+			}
+
+		}
+
+		function IsImlements(object){//方便解耦。
+
+			for(var i =1 ; i<arguments.length;i++){
+				var interfaceName = arguments[i]
+				var interfaceFlag = false;
+
+				for(var j = 0;j<object.inplement.length;j++){
+
+					if(object.inplement[j] == interfaceName){
+							 interfaceFlag = true;
+							break;
+					}	
+						
+				}
+				if (!interfaceFlag) {
+						return false
+				}
+			}
+			return true;
+		}
+
+		var c1 = new Compsited();
+		checkCompsite(c1)
+		
+		c1.add()
+		console.log(c1.inplement)
+	</script>
+</body>
+</html>

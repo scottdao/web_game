@@ -301,3 +301,58 @@
          Son.prototype = father;
          var son = new Son(18,'nv',3,'12')
          console.log(son)
+
+#  接口的实现方式
+
+### 1.注解描述的方式:
+
+        优点：程序员可以参考
+        缺点：他只是一个属于一个文档的范畴。方式过于松散，无检查接口的实现。
+
+### 2.属性检测的方式：
+
+        缺点：能实行类里的接口，无法实现原型方法，无面向对象的思想。
+
+        //检测类所有的接口是否实现方法。
+        function checkCompsite(instance){
+           if(!IsImlements(instance,'compsite','formItem')){
+                throw new Error('Object does not implement a required interface!')
+            }
+       }
+     function IsImlements(object){//方便解耦。
+       for(var i =1 ; i<arguments.length;i++){
+                var interfaceName = arguments[i]
+                var interfaceFlag = false;
+         for(var j = 0;j<object.inplement.length;j++){
+                if(object.inplement[j] == interfaceName){
+                             interfaceFlag = true;
+                            break;
+                    }   
+                        
+                }
+                if (!interfaceFlag) {
+                        return false
+                }
+            }
+            return true;
+        }
+
+
+
+### 3.鸭式辩型法；
+
+        鸭式辩型法：一个类实现接口的目的，把接口的方法都实现。完全面向对象，
+        代码实现统一，也解耦。
+         
+         接口实现2个参数，
+         
+         参数一：接口的名称
+         
+         参数二：接收方法名称的集合 
+
+        接口的劣势：对于中小型程序，接口的优势体现不出来，只能增加复杂度。
+
+        实现接口优势：提高代码的复用性，对于程序员来说那些类使用了什么方法，减少类与类之间的冲突，实现解耦。测试和调试变得更加轻松。
+
+
+
