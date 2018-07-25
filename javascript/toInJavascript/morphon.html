@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单体模式</title>
+</head>
+<body>
+	
+
+	<script>
+		/**
+		 * 单体模式
+		 * 
+		 * 简单单体模式
+		 * 
+		 */
+
+		 var mor = {
+		 	m1:2345,
+		 	m2:'scott',
+		 	method1:function(){
+
+		 	},
+		 	method2:function(){
+
+		 	}
+		 };
+
+
+		 /**
+		  *
+		  *闭包单体模式；
+		  *
+		  *借用闭包创建单体，闭包的目的保护数据。
+		  * 
+		  */
+
+		  var sign = (function(){
+		  			//块级作用域，能创建私有属性，私有类。
+		  			return{
+		  				a1:1233,
+		  				a2:'scott',
+		  				a3:'liu',
+		  				s:function(){
+		  					
+		  				}
+		  			}
+
+		  })()
+
+		 /**
+		  *
+		  * 惰性单体模式；
+		  *
+		  *通过变量控制返回所需的方法。 
+		  * 
+		  */
+		 
+		 var sign = {}
+		 sign.ext=(function(){
+		 	var flag;
+		 	function init(){
+		 		var a1 = 0;
+		 		var a2 = 3;
+		 		var fn1 = function(){alert('scott')}
+		 		var fn2 = function(){alert('dao')}
+		 		return {
+		 			a1:a1,
+		 			a2:a2,
+		 			fn1:function(){
+		 				return fn1
+		 			},
+		 			fn2:function(){
+		 				return fn2
+		 			}
+		 		}
+		 	}
+
+		 	return{
+		 		obj:function(){
+
+		 			if (!flag) {
+		 				flag = init()
+		 			}
+		 			return flag;
+		 		}
+		 	}
+		 })()
+		 //console.log(sign.ext.obj())
+		
+
+		/**
+		 * 分支单体
+		 *
+		 *判别浏览器类型。
+		 *
+		 */
+		
+		var ext = {};
+		var def = true;
+		ext.more=(function(){
+		return{
+			obj1:{//浏览器1
+
+			},
+			obj2:{//浏览器2
+
+			}
+		}
+		})()
+	</script>
+</body>
+</html>
