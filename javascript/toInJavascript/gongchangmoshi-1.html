@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式</title>
+</head>
+<script src='./common/commonUtil.js'></script>
+<body>
+	<div id="gc"></div>
+	<script>
+		/**
+		 *
+		 *工厂模式
+		 *
+		 * 实现工厂环境。
+		 * 
+		 */
+		
+		function Book (){}
+		Book.prototype = {
+				constructor:Book,
+				FindBook:function(type){
+					var bookType ;
+
+					switch(type){
+						case 'History':
+
+							 bookType = new History();
+
+							 break;
+
+						case 'Literature':
+
+							bookType = new Literature();
+
+							break;
+
+						case 'Science':
+
+							bookType = new Science();
+						break;
+
+						default:
+						break;
+
+					}
+					LDY.Interface.ensureImplements(bookType,BookInterface)
+					return bookType;
+
+				}
+
+		}
+		 // new LDY.interface(Book,['cultrue','history'])
+		 // console.log(LDY)
+		 
+		 //接口实例
+	var BookInterface = new LDY.Interface('BookInterface',['BookName','BookPage'])
+
+	 function History(){} 
+
+	 History.prototype.BookName = function(){
+	 	alert('bookname')
+	 }
+
+	 History.prototype.BookPage = function(){
+
+
+	 }
+
+	 function Literature(){}
+
+	  Literature.prototype.BookName = function(){
+
+	 }
+
+	 Literature.prototype.BookPage = function(){
+
+	 	
+	 }
+
+
+	 function Science(){}
+
+	  Science.prototype.BookName = function(){
+
+	 }
+
+	 Science.prototype.BookPage = function(){
+
+	 	
+	 }
+
+	 var book = new Book();
+	// console.log(book.FindBook)
+	var his=  book.FindBook('History')
+		his.BookName()
+	</script>	
+</body>
+</html>

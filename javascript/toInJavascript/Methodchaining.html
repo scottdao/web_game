@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>链式编程</title>
+
+</head>
+<body>
+<div class="div" id='scott'></div>
+<script src='./jquery-3.3.1.js'></script>
+	<script>
+		var arr = {1:1,6:2,'n':3}
+		$.each(arr,function(res){
+			console.log(res)
+		})
+		/**
+		 *
+		 * 简单的链式编程,使用面向对象。
+		 * 
+		 */
+		
+		function Dog(){
+				this.run = function(){
+						alert('1')
+						return this;
+				};
+				this.sleep = function(){
+					 alert('2')
+					 return this;
+				};
+				this.study = function(){
+					alert('3')
+					return this
+				}
+		}
+
+		var dog = new Dog()
+
+		//dog.run().sleep()
+
+		/**
+		 * 模拟jquery底层；
+		 *
+		 * jquery底层采用了块级作用域。代码自动执行。
+		 *
+		 * 内部成员变量，外部无法访问。
+		 */
+
+		/*(function(window,undefined){
+			function _$(arguments){
+				//实现代码；
+			}
+
+			window.$ = _$;
+
+			_$.onReady = function(fn){
+
+				window._$ = function(){
+					return new _$(arguments);
+				}
+
+				fn();
+
+			}
+
+		})(window)
+
+
+		$.onReady(functin(){
+
+		})*/
+	</script>
+</body>
+</html>

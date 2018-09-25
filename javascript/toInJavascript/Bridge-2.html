@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>桥接模式2</title>
+</head>
+<body>
+	<script>
+	/**
+	 * 1.桥接模式，通过特权函数，让外界能获取类的私有属性
+	 *
+	 * 2.获取私有变量
+	 *
+	 * 3.将多个单体组织在一起；每个单元都可以独立化，连接在一起。
+	 */
+	
+	/*function DataType(){
+
+			//var t = 'scott'私有变量
+			var tem  = function(){
+				alert('复杂函数')
+			}
+			//特权函数，可以访问私有的函数，私有的独立单元。
+			this.bridge = function(){
+				return tem();
+			}
+
+	}
+
+	var dataType = new DataType();
+	dataType.bridge()*/
+
+	var class1 = function(a,b,c){
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+	var class2 = function(d,e){
+		this.d = d;
+		this.e = e;
+	}
+
+	var bridgeClass = function(a,b,c,d,e){
+		this.class1 = new class1(a,b,c);
+		this.class2 = new class2(d,e);
+	}
+	</script>
+</body>
+</html>

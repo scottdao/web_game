@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>门面模式</title>
+</head>
+<body>
+<div id='div1'>垃圾啊发大水了空间</div>
+	<script>
+	/**
+	 * 简化api接口
+	 * 接触代码耦合
+	 * 门面模式，将复杂简单化。
+	*/
+
+	//简单的门面模式
+	function setStyle(ele,prop,val){
+		for (var i =0,len =  ele.length - 1; i <=len i++) {
+			document.getElementById(ele[i]).style[prop] = val
+		}
+	}
+
+	//门面模式css样式；
+	function setCss(ele,options){
+		for(var i in options){
+			if(!options.hasOwnPrototype(i))continue;
+			setStyle(ele,i,options[i]);
+		}
+	}
+	</script>
+</body>
+</html>
