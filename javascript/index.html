@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前端基础</title>
+</head>
+<body>
+	<script>
+	   //变量正则；
+	   
+	  /* var str = 'ne2'
+	   *var n = /^([a-zA-Z0-9]+)([a-zA-Z]*)$/
+	   *var reg = new RegExp(n)//可以动态创建表达式；
+	   *reg.test(str)
+	   *console.log( reg.test(str))
+	   *console.log(RegExp.$1)//
+	   *正则验证成功,$1表示分组的概念，$1表示正则匹配小括号第一组进行获取
+	   */
+	  //替换空字符串
+	 /* var str = 'scott nue jie typr kf ytr kfljei 126' 
+	  var reg = new RegExp(/\s+/,'g')
+	  str = str.replace(reg,'')
+	  console.log(str)*/
+	  /**
+	   * 第一种情况：
+	   *replace(a,b)
+	   *a,表示父级需要匹配替换的参数(正则|string)；
+	   *b,替换的类型
+	   *
+	   * 第二种情况：
+	   *replace(a,function(res,index){})；
+	   * a,表示父级需要匹配替换的参数(正则|string)；
+	   * res,表示能替换的字符，
+	   * index,替换字符串在父级的字符串的位置；
+	   * replace只存在两个参数，第二个参数可以是字符串也可以回调函数。
+	   
+	 var str = 'fhdsfj ksjdflkj jklsdjflk'
+	 str =  str.replace(/j/g,function(res,index){
+	  	console.log(res)
+	  	console.log(index)
+	  	
+	  })
+	 console.log(str)*/
+
+	 //constrcutor
+	</script>
+	<div class="div name"></div>
+	<div>
+		<div class='el'>
+	</div>
+	<div></div>
+	<script>
+	 // var ele = document.getElementsByClassName('name');
+	 // console.log(ele[0])
+	//http://www.runoob.com/jsref/dom-obj-document.html
+	var className = function(name){
+			if(document.getElementsByClassName){//
+				return document.getElementsByClassName(name)[0]
+			}else{
+
+			}
+	}
+	//console.log(className('name'))
+	var a = 4;
+	var b = 20;
+	var d = ++a +b//25
+	console.log(d)
+	
+	</script>
+</body>
+</html>
