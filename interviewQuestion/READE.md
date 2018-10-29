@@ -43,12 +43,29 @@
             }
             id2.addEventListener('click',ad2,false)
             id1.addEventListener('click',ad1,false)
+
+            事件的监听者；
             </script>
 
 
+  2. 严格模式 和 非严格模式：
+
+      1.意外的全局变量，没有用var声明；
+
+      2. 变量名重复
+
+      3.内置对象的属性名问题；
+
+      4.eval函数；
+
+      5.8进制字面量的不允许使用；
+
+      6.call/apply/bind方法的第一个参数为undefined时，this为null和undefined；
 ##  react.js
 
 1.虚拟dom和原生dom的区别；
+
+  
 
 2.生命周期，组件加载完成，会执行哪些生命周期；
 
