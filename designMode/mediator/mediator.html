@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中介者模式</title>
+</head>
+<body>
+    <script>
+              // 中介者实现注册转发功能
+              class Mediator{
+                static #map = new Map()
+                static resgister=(name, current)=>{
+                    if(!this.#map.get(name)){
+                        this.#map.set(name, current)
+                        return false
+                    }
+                  return this.relay(current)
+                }
+                static relay=(cla)=>{
+                   cla.receive();
+                }
+            }
+
+            class SA extends Mediator{
+                static receive = () =>{
+                    console.log('接受指令！')
+                }
+                static send = () =>{
+                    console.log('发出指令！')
+                    Mediator.resgister('SA', this)
+                }
+            }
+            SA.send()
+            SA.send()
+    </script>
+</body>
+</html>
