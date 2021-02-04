@@ -17,7 +17,7 @@ html,body{
     /* background-color: green; */
 }
 #transformFile #left{
-    width: 20%;
+    width: 25%;
     height: 100%;
     background-color:  #eee;
     text-align: center;
@@ -39,6 +39,10 @@ html,body{
 #left dd:hover{
     text-decoration: underline;
     color:#337FE5;
+}
+#left .click{
+    background-color: orange;
+    color: white;
 }
 #right{
     text-align: center;
