@@ -34,16 +34,19 @@ export class Network{
         };
         headers.headers = {
             'content-type': 'application/json',
-            Auth:this.token
+            // Auth:this.token
+        }
+        if(this.token){
+            headers.headers.Auth = this.token
         }
         if(method !== 'get'){
             if(data){
                 if(data.reponseType==='formData'){
-                    let data = new FormData()
+                    let _data = new FormData()
                     for (const item of Object.keys(data.params)) {
-                        data.append(data.params[item])
+                        _data.append(item, data.params[item])
                     }
-                    headers.body = data
+                    headers.body = _data
                     headers.headers['content-type'] = 'multipart/form-data'
                 }else if(data.reponseType === 'blob'){
                     headers.body = JSON.stringify(data.params || {})
@@ -62,7 +65,11 @@ export class Network{
         })
     }
 }
+Network.init('http://192.168.1.134:8000/api')
 
 export  class API{
-    
+    static fileUpload=(data)=>{
+        return  Network.post('/upload/file', data)
+    }
+   
 }

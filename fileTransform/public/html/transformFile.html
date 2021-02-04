@@ -1,4 +1,55 @@
-<div id="transformFile">
-   <span>{{ title }}</span> 
-    <span>{{name}}</span>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/transform.css">
+</head>
+<body>
+    <div id="transformFile">
+        <!-- 左侧导航 -->
+        <dl id="left">
+            <dt>PDF转换</dt>
+            <dd>PDF转WORD</dd>
+            <dd>PDF转PPT</dd>
+            <dd>PDF转图片</dd>
+            <dd>PDF转HTML</dd>
+        </dl>
+        <!-- 右侧显示 -->
+        <div id="right">
+            <div class="top">
+                <p class="sc">
+                    <span>上传</span>
+                    <input type="file">
+                </p>
+                <p>
+                    <button class="zh">开始转换</button>
+                </p>
+                <p>
+                    <input type="checkbox" class="checkbox"> 确保上传的内容不涉及版权问题及违法内容
+                </p>
+                <p>
+                    <span class="red">注意：</span><span>请上传需要转换的</span><span>图片</span><span>文件，支持50MB以内文件。</span>
+                </p>
+            </div>
+            <div class="center">
+                <p>
+                    <span class="red">注意：</span><span>如果</span><span>图片</span><span>有密码保护，请先去除加密保护再上传文件</span>
+                </p>
+                <!-- <p></p> -->
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { API } from '../../common/api.js';
+        // console.log()
+        API.fileUpload({
+            params:{a:12312},
+            reponseType:'formData'
+        })
+
+    </script>
+    <script type="text/JavaScript" src="../js/transform.js"></script>
+</body>
+</html>
