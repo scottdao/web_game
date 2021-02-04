@@ -4,12 +4,16 @@ import swig from 'swig';
 import multer from 'multer';
 import path from 'path';
 import multiparty from 'multiparty'
-const app = express();
-app.use(express.static(process.cwd() + "/public"));
+
 import bodyParser from 'body-parser';
 import { goServer } from './server/start.js';
 import { ResponseMessage } from './server/response.js';
 import { createDir } from './server/utils.js';
+
+import { routers } from './server/router.js';
+ 
+const app = express();
+app.use(express.static(process.cwd() + "/public"));
 
 app.set("views", "./public/html");
 app.set("view engine", "html");
@@ -18,6 +22,7 @@ swig.setDefaults({ cache: false });
 app.set("view cache", false);
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
+
 
 
 const _env = process.env.NODE_ENV
@@ -29,12 +34,16 @@ if(_env.trim() == 'development'){
         next()
     })
 }
-const file_name = 'files';
-app.get('/transform/file', (req, res) => {
-    res.render('index', {
-        routerName:'/transform/file'
-    })
-});
+
+const routerConfig = Object.keys(routers);
+for (const config of routerConfig) {
+    app.get(routers[config].routerName, (req, res) => {
+        res.render('index', {
+            ...routers[config]
+        })
+    });
+} 
+
 
 // const storage = multer.diskStorage({
 //     destination: function (req, file, cb) {

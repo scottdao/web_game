@@ -1,8 +1,10 @@
 <body>
-    {% include "./transformFile.html" %}
-    <div>123123</div>
-    <script type="module">
-        import { Network } from '/common/api.js'
-        Network.get(`${window.location.pathname}`)
-    </script>
+    {% if routerName === "/transform/file" %}
+        {% include "./transformFile.html" %}
+    {% endif %}
+
+
+    {% if routerName !== "/transform/file"   %}
+     <div>404</div>
+    {% endif %}
 </body>
