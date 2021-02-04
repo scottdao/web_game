@@ -32,10 +32,6 @@ export class Network{
         let headers = {
             method
         };
-        headers.headers = {
-            'content-type': 'application/json',
-            // Auth:this.token
-        }
         if(this.token){
             headers.headers.Auth = this.token
         }
@@ -46,15 +42,23 @@ export class Network{
                     for (const item of Object.keys(data.params)) {
                         _data.append(item, data.params[item])
                     }
-                    headers.body = _data
-                    headers.headers['content-type'] = 'multipart/form-data'
+                    headers.body = _data;
                 }else if(data.reponseType === 'blob'){
-                    headers.body = JSON.stringify(data.params || {})
+                    headers.headers = {
+                        'content-type': 'application/json'
+                    }
+                    data.params?(headers.body = JSON.stringify(data.params)):""
                 }else{
+                    headers.headers = {
+                        'content-type': 'application/json'
+                    }
                     headers.body = data.params?JSON.stringify(data.params):JSON.stringify(data)
                 }
             }
         }else{
+            headers.headers = {
+                'content-type': 'application/json'
+            }
             url = (data &&  data.params)?`${url}?${makeGetURL(data.params)}`:url
         }
         return fetch(this.api?`${this.api}${url}`:url, headers).then(res=>{
@@ -65,8 +69,7 @@ export class Network{
         })
     }
 }
-Network.init('http://192.168.1.134:8000/api')
-
+Network.init('http://192.168.0.74:8000/api')
 export  class API{
     static fileUpload=(data)=>{
         return  Network.post('/upload/file', data)
