@@ -1,11 +1,3 @@
-document.getElementsByClassName("zh")[0].onclick=function(){
-    if(document.getElementsByClassName("checkbox")[0].checked){
-        alert("转换成功")
-    }
-    else{
-        alert("请勾选协议")
-    }
-}
 // 点击切换效果
 let ddarr=document.querySelectorAll("#left dd")
 for(let i=0;i<ddarr.length;i++){
@@ -19,3 +11,8 @@ for(let i=0;i<ddarr.length;i++){
         ddarr[i].className="click"
     }
 }
+import { API } from '/common/api.js'
+$('#uploadFile').change((v)=>{
+    const files = v.target.files;
+    console.log(files)
+})
