@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单列模式</title>
+</head>
+<body>
+    <div>单例模式</div>
+    <script>
+        // 代理单例
+        class Single{
+            constructor(name){
+                this.name = name
+            }
+        }
+        const ProxySingle =(()=>{
+           let single = null
+            return(name)=>{
+                if(!single){
+                    single =  new Single(name)
+                }
+                return single
+            } 
+        })()
+        const proxySingle =  ProxySingle('ldy')
+        const proxySingle2 = ProxySingle('ldy')
+        console.log(proxySingle == proxySingle2)
+        console.log(proxySingle.name, 887)
+
+    </script>
+</body>
+</html>

@@ -3,23 +3,25 @@ import express from 'express';
 import swig from 'swig';
 import multer from 'multer';
 import path from 'path';
+import multiparty from 'multiparty'
 const app = express();
 app.use(express.static(process.cwd() + "/public"));
 import bodyParser from 'body-parser';
 import { goServer } from './server/start.js';
-import { ResponseMessage } from './server/response.js'
+import { ResponseMessage } from './server/response.js';
+import { createDir } from './server/utils.js';
 
 app.set("views", "./public/html");
-
 app.set("view engine", "html");
 app.engine("html", swig.renderFile);
 swig.setDefaults({ cache: false });
 app.set("view cache", false);
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 const _env = process.env.NODE_ENV
-if(_env === 'development'){
+if(_env.trim() == 'development'){
     app.all('*', (req, res, next)=>{
         res.header("Access-Control-Allow-Origin","*");
         res.header("Access-Control-Allow-Headers","content-type");
@@ -27,15 +29,15 @@ if(_env === 'development'){
         next()
     })
 }
-const fileName = 'files';
+const file_name = 'files';
 app.get('/transform/file', (req, res) => {
     res.render('index')
 });
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        createDir(glob_fileDir_name).then(res=>{
-            cb(null, path.join(process.cwd(), `./${glob_fileDir_name}`));    // 保存的路径，备注：需要自己创建
+        createDir(file_name).then(res=>{
+            cb(null, path.join(process.cwd(), `./${file_name}`));    // 保存的路径，备注：需要自己创建
         })
     },
     filename: function (req, file, cb) {
@@ -44,10 +46,20 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({ storage: storage });
-app.post('/api/upload/file', upload.single('file'), (req, res)=>{
+// upload.single('file')
+app.post('/api/upload/file', (req, res)=>{
     try{
-        console.log(req.body)
-        res.status(200).send(ResponseMessage.init(200))
+        let form = new multiparty.Form()
+        form.parse(req,(err, fields, files) => {
+           console.log(fields, files, 8788)
+            if(err){
+                res.status(200).send(ResponseMessage.init(400, err))
+            }else{
+                res.status(200).send(ResponseMessage.init(200))
+            }
+        })
+        // console.log(req.body, ResponseMessage.init(200))
+        
     }catch(err){
         res.status(200).send(ResponseMessage.init(err.status, err))
     }
