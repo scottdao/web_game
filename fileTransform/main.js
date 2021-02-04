@@ -31,21 +31,23 @@ if(_env.trim() == 'development'){
 }
 const file_name = 'files';
 app.get('/transform/file', (req, res) => {
-    res.render('index')
+    res.render('index', {
+        routerName:'/transform/file'
+    })
 });
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        createDir(file_name).then(res=>{
-            cb(null, path.join(process.cwd(), `./${file_name}`));    // 保存的路径，备注：需要自己创建
-        })
-    },
-    filename: function (req, file, cb) {
-        // 将保存文件名设置为 字段名 + 时间戳，比如 logo-1478521468943
-        cb(null, file.fieldname + '-' + Date.now());  
-    }
-});
-const upload = multer({ storage: storage });
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         createDir(file_name).then(res=>{
+//             cb(null, path.join(process.cwd(), `./${file_name}`));    // 保存的路径，备注：需要自己创建
+//         })
+//     },
+//     filename: function (req, file, cb) {
+//         // 将保存文件名设置为 字段名 + 时间戳，比如 logo-1478521468943
+//         cb(null, file.fieldname + '-' + Date.now());  
+//     }
+// });
+// const upload = multer({ storage: storage });
 // upload.single('file')
 app.post('/api/upload/file', (req, res)=>{
     try{
