@@ -15,4 +15,8 @@ import { API } from '/common/api.js'
 $('#uploadFile').change((v)=>{
     const files = v.target.files;
     console.log(files)
+    API.fileUpload({
+        params:{a:123},
+        reponseType:"formData"
+    })
 })
