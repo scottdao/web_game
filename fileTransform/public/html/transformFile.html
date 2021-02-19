@@ -1,38 +1,38 @@
-
-    <div id="transformFile">
-        <!-- 左侧导航 -->
-        <dl id="left">
-            <dt>PDF转换</dt>
-            <dd>PDF转WORD</dd>
-            <dd>PDF转PPT</dd>
-            <dd>PDF转图片</dd>
-            <dd>PDF转HTML</dd>
-        </dl>
-        <!-- 右侧显示 -->
-        <div id="right">
-            <div class="top">
-                <p class="sc">
-                    <span>上传</span>
-                    <input type="file" id="uploadFile">
-                </p>
-                <p>
-                    <button class="zh">开始转换</button>
-                </p>
-                <p id="scp"></p>
-                <!-- <p>
+<div id="transformFile">
+    <!-- 左侧导航 -->
+    <dl id="left">
+        <dt>PDF转换</dt>
+        <dd>PDF转WORD</dd>
+        <dd>PDF转PPT</dd>
+        <dd>PDF转图片</dd>
+        <dd>PDF转HTML</dd>
+    </dl>
+    <!-- 右侧显示 -->
+    <div id="right">
+        <div class="top">
+            <div id="fileName"></div>
+            <p class="sc">
+                <span>上传</span>
+                <input type="file" id="uploadFile" multiple>
+            </p>
+            <p>
+                <button class="zh">开始转换</button>
+            </p>
+            <p id="scp"></p>
+            <!-- <p>
                     <input type="checkbox" class="checkbox"> 确保上传的内容不涉及版权问题及违法内容
                 </p> -->
-                <p>
-                    <span class="red">注意：</span><span>请上传需要转换的</span><span>文件，支持50MB以内文件。</span>
-                </p>
-            </div>
-            <!-- <div class="center">
+            <p>
+                <span class="red">注意：</span><span>请上传需要转换的</span><span>文件，支持50MB以内文件。</span>
+            </p>
+        </div>
+        <!-- <div class="center">
                 <p>
                     <span class="red">注意：</span><span>如果</span><span>图片</span><span>有密码保护，请先去除加密保护再上传文件</span>
                 </p>
                
             </div> -->
-        </div>
-        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
-        <script type="module" src="/js/transform.js"></script>
     </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script type="module" src="/js/transform.js"></script>
+</div>

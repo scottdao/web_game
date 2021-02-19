@@ -14,7 +14,14 @@ for (let i = 0; i < ddarr.length; i++) {
 import { API } from "/common/api.js";
 $("#uploadFile").change((v) => {
     const files = v.target.files;
-    console.log(files);
+    const file = Array.prototype.slice.call(files);
+    $("#fileName").html("");
+    for (const _f of file) {
+        const p = $("<p />");
+        p.html(_f.name);
+        $("#fileName").append(p);
+    }
+
     // API.fileUpload({
     //     params:{a:123},
     //     reponseType:"formData"
